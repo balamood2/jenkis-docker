@@ -19,4 +19,6 @@ timestamper:latest
 workflow-aggregator:latest
 ws-cleanup:latest
 job-dsl:latest
-
+ansible:latest
+docker-workflow
+ssh:latest
