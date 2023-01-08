@@ -20,4 +20,5 @@ ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false -Dpermissive-script-securit
 ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc.yaml
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /bin/jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
-COPY casc.yaml /var/jenkins_home/casc.yaml
+COPY jenkins-config.yaml /var/jenkins_home/casc.yaml
+COPY --from=lachlanevenson/k8s-kubectl:v1.24.8 /usr/local/bin/kubectl /usr/local/bin/kubectl

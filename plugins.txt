@@ -1,14 +1,11 @@
-ant:latest
 antisamy-markup-formatter:latest
 build-timeout:latest
-cloudbees-folder:latest
 configuration-as-code:latest
 credentials-binding:latest
 authorize-project:latest
 email-ext:latest
 git:latest
 github-branch-source:latest
-gradle:latest
 mailer:latest
 matrix-auth:latest
 pam-auth:latest
@@ -18,7 +15,7 @@ ssh-slaves:latest
 timestamper:latest
 workflow-aggregator:latest
 ws-cleanup:latest
-job-dsl:latest
-ansible:latest
 docker-workflow
-ssh:latest
+kubernetes-cli
+kubernetes
+pipeline-aws
