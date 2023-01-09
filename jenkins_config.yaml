@@ -2,17 +2,17 @@ credentials:
   system:
     domainCredentials:
     - credentials:
-      - usernamePassword:
-          description: "docker"
-          id: "docker"
-          password: "{AQAAABAAAAAQSS7knWJDBifFAKDPYFbgmnt+jz6dNDkzLUTmXDvhNk0=}"
-          scope: GLOBAL
-          username: "balamood"
       - aws:
           accessKey: "AKIA3E22TWVR4ELFWFES"
           id: "aws_id"
           scope: GLOBAL
-          secretKey: "{AQAAABAAAAAwekH8mWalIu/W5ArIu2pV487giQ7IONV1MGC42qQ9C97yagL+/fucjXSjrEuaAzWq6cDbyDjiKCGleQn9d+ZmLg==}"
+          secretKey: "{AQAAABAAAAAwefG+rHq/8/4+78gOKzuzdCJrBnrk9iAjKpimfy+W5bZ5h65VBnv46812FCEN38q8ZJpneBambuQ+Ieqke4N8sQ==}"
+      - usernamePassword:
+          description: "docker credentials"
+          id: "docker"
+          password: "{AQAAABAAAAAQwzkn5GOVcI9V6rwfvN/3GjsVG+ERRGNpCOVWUEMqbRk=}"
+          scope: GLOBAL
+          username: "balamood"
 jenkins:
   agentProtocols:
   - "JNLP4-connect"
@@ -69,28 +69,16 @@ security:
     allowedOnController: false
   gitHostKeyVerificationConfiguration:
     sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
-  globalJobDslSecurityConfiguration:
-    useScriptSecurity: true
   queueItemAuthenticator:
     authenticators:
     - global:
         strategy: "triggeringUsersAuthorizationStrategy"
   sSHD:
     port: -1
-  scriptApproval:
-    approvedScriptHashes:
-    - "SHA512:3f205299bef2fe3329258a42f2c60d332cc35ccb41a3ca0512d7869c6aff4561ff708c48123b4f7c3dec33ccca30d54fb8b9b51b5bc7070f96236d11a3f0bdcb"
-    approvedSignatures:
-    - "method groovy.lang.GroovyObject invokeMethod java.lang.String java.lang.Object"
 unclassified:
   buildDiscarders:
     configuredBuildDiscarders:
     - "jobBuildDiscarder"
-    - simpleBuildDiscarder:
-        discarder:
-          logRotator:
-            daysToKeepStr: "1"
-            numToKeepStr: "1"
   buildStepOperation:
     enabled: false
   email-ext:
@@ -121,11 +109,6 @@ unclassified:
     operations:
     - "abortOperation"
     overwriteable: false
-  injectionConfig:
-    allowUntrusted: false
-    enabled: false
-    injectCcudExtension: false
-    injectMavenExtension: false
   junitTestResultStorage:
     storage: "file"
   location:
@@ -139,6 +122,8 @@ unclassified:
     dockerLabel: "docker"
     registry:
       credentialsId: "docker"
+  pluginImpl:
+    enableCredentialsFromNode: false
   pollSCM:
     pollingThreadCount: 10
   scmGit:

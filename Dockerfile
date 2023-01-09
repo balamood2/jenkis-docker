@@ -13,6 +13,8 @@ add-apt-repository \
     stable" && \
 apt-get update && \
 apt-get -y install docker-ce docker-ce-cli containerd.io
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o  "awscliv2.zip" && \
+	unzip awscliv2.zip && ./aws/install
 RUN apt-get install -y docker-ce
 RUN usermod -a -G docker jenkins
 USER jenkins
@@ -20,7 +22,5 @@ ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false -Dpermissive-script-securit
 ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc.yaml
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /bin/jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
-COPY jenkins-config.yaml /var/jenkins_home/casc.yaml
+COPY jenkins_config.yaml /var/jenkins_home/casc.yaml
 COPY --from=lachlanevenson/k8s-kubectl:v1.24.8 /usr/local/bin/kubectl /usr/local/bin/kubectl
-RUN	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-RUN	unzip awscliv2.zip && ./aws/install
