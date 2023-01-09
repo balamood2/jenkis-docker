@@ -22,3 +22,5 @@ COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /bin/jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 COPY jenkins-config.yaml /var/jenkins_home/casc.yaml
 COPY --from=lachlanevenson/k8s-kubectl:v1.24.8 /usr/local/bin/kubectl /usr/local/bin/kubectl
+RUN	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN	unzip awscliv2.zip && ./aws/install
