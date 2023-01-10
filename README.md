@@ -16,7 +16,7 @@ this repo contains Dockerfile for creating a jenkins deployment using docker
 3- choose "Pipline" and click ok
 4- under PipeLine select "Pipeline script from SCM", save and go back to the newly created item and click it
 5- click on Configure 
-6- Enter the repo URL under "Git" https://github.com/balamood2/test-build
+6- Enter the repo URL under "Git" https://github.com/balamood2/test-build , here you  might want to clone so you  can add your webhook
 7- Save and build
 
 
